@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+    font-family: 'Montserrat';
+    font-weight: 400;
+    
+}
+
+.start {
+  background: url(../images/city.webp) no-repeat center/cover;
+  background-attachment: fixed;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.sprite {
+  width: 0;
+  height: 0;
+  position: absolute;
+  z-index: -1;  
+  visibility: hidden;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+
+  &--white {
+    fill: white;
+  }
+
+  &--dark {
+    fill: var(--bs-dark);
+  }
+}
+
+.star {
+  padding: 0 20px;
+  @media screen and (min-width: 425px) {
+    padding: 0 35px;
+  }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    left: 100%;
+    width: 80px;
+    height: 2px;
+  }
+
+  &::after {
+    left: auto;
+    right: 100%;
+  }
+
+  &--white {
+    &::before, &::after {
+      background: white;
+    }
+  }
+
+  &--dark {
+    &::before, &::after {
+      background: var(--bs-dark);
+    }
+  }
+}
+
+.portfolio__overlay {
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.portfolio__box:hover .portfolio__overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.plus {
+  width: 50px;
+  height: 50px;
+  fill: white;
+}
+
+.about {
+  background: var(--bs-gray-600);
+  &__text {
+    text-align: justify;
+  }
+}
+
+.contact__form-control:focus {
+   
+    
+    border-color: var(--bs-dark);
+    box-shadow: 0 0 0 0.25rem rgba(20, 20, 20, 0.25);
+}
+
+.footer {
+  background: var(--bs-dark);
+}
